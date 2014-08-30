@@ -186,18 +186,19 @@ class OpenCage(Geocoder):
         """
         Validates error statuses.
         """
-        if status.code == 429:
+        status_code = status['code']
+        if status_code == 429:
             # Rate limit exceeded
             raise GeocoderQuotaExceeded(
                 'The given key has gone over the requests limit in the 24'
                 ' hour period or has submitted too many requests in too'
                 ' short a period of time.'
             )
-        if status.code == 200:
+        if status_code == 200:
             # When there are no results, just return.
             return
 
-        if status.code == 403:
+        if status_code == 403:
             raise GeocoderQueryError(
                 'Your request was denied.'
             )
