@@ -30,7 +30,7 @@ class OpenCage(Geocoder):
             scheme=DEFAULT_SCHEME,
             timeout=DEFAULT_TIMEOUT,
             proxies=None,
-        ):  # pylint: disable=R0913
+    ):  # pylint: disable=R0913
         """
         Initialize a customized Open Cage Data geocoder.
 
@@ -60,7 +60,6 @@ class OpenCage(Geocoder):
         self.scheme = scheme
         self.api = '%s://%s/geocode/v1/json' % (self.scheme, self.domain)
 
-
     def geocode(
             self,
             query,
@@ -69,7 +68,7 @@ class OpenCage(Geocoder):
             language=None,
             exactly_one=True,
             timeout=None,
-        ):  # pylint: disable=W0221,R0913
+    ):  # pylint: disable=W0221,R0913
         """
         Geocode a location query.
 
@@ -128,7 +127,7 @@ class OpenCage(Geocoder):
             language=None,
             exactly_one=False,
             timeout=None,
-        ):  # pylint: disable=W0221,R0913
+    ):  # pylint: disable=W0221,R0913
         """
         Given a point, find an address.
 
@@ -204,4 +203,3 @@ class OpenCage(Geocoder):
             )
         else:
             raise GeocoderQueryError('Unknown error.')
-
